@@ -4,12 +4,21 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class app_logo_widget extends StatelessWidget {
   const app_logo_widget({
-    super.key,
+    super.key, this.width, this.height, this.boxfit,
   });
+
+  final double? width;
+  final double? height;
+  final BoxFit? boxfit;
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(Assetspath.applogo,
-      width: 100,);
+    return SvgPicture.asset(
+      Assetspath.applogo,
+      width:width?? 100,
+      height:height?? 100,
+      fit:boxfit?? BoxFit.scaleDown,
+
+    );
   }
 }
