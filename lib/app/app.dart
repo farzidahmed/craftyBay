@@ -9,6 +9,8 @@ import 'package:craftybay/features/common/ui/screens/main_bottom_nav_screen.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../features/Category/ui/screen/Category_list_screen.dart';
+
 class CraftyBay extends StatelessWidget {
   const CraftyBay({super.key});
 
@@ -29,6 +31,7 @@ class CraftyBay extends StatelessWidget {
         OtplVerificationScreen.name: (context) => const OtplVerificationScreen(),
         CompleteScreen.name: (context) => const CompleteScreen(),
         MainBottomNavScreen.name: (context) => const MainBottomNavScreen(),
+        CategoryListScreen.name: (context) => const CategoryListScreen(),
       },
     );
   }

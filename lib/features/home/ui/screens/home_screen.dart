@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../app/app_colors.dart';
-import '../widgets/category_item.dart';
+import '../../../common/widgets/category_item.dart';
 import '../widgets/home_carousel_slider.dart';
 import '../widgets/home_section_header.dart';
 import '../widgets/product_item_widget.dart';
