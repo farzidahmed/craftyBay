@@ -97,7 +97,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 16,
               ),
               const SizedBox(
-                height: 16,
+                height: 16
+
               ),
               HomeSectionHeader(
                 title: 'New Product',
