@@ -6,6 +6,8 @@ import 'package:craftybay/features/home/ui/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../widgets/home_carousel_slider.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -23,25 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           SizedBox(height: 16,),
           Searchbar(controller: _searchditingcontroller,),
-          CarouselSlider(
-            options: CarouselOptions(height: 200,viewportFraction: 0.3),
-            items: [1,2,3,4,5].map((i) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.symmetric(horizontal: 5.0),
-                      decoration: BoxDecoration(
-                          color: AppColors.themColor,
-                        borderRadius: BorderRadius.circular(16)
-                      ),
-                      alignment: Alignment.center,
-                      child: Text('text $i', style: TextStyle(fontSize: 16.0),)
-                  );
-                },
-              );
-            }).toList(),
-          )
+          Home_Carousel_Slider()
         ],
       ),
     );
@@ -69,5 +53,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
 
 
