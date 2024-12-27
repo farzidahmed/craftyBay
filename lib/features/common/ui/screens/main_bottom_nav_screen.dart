@@ -20,6 +20,7 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
     CategoryListScreen(),
     HomeScreen(),
     HomeScreen(),
+
   ];
 
   @override
