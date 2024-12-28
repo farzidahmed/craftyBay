@@ -1,4 +1,3 @@
-import 'package:craftybay/app/app_colors.dart';
 import 'package:craftybay/app/app_theme_data.dart';
 import 'package:craftybay/app/controller_binder.dart';
 import 'package:craftybay/features/auth/ui/screens/complete_screen.dart';
@@ -10,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../features/Category/ui/screen/Category_list_screen.dart';
+import '../features/product/ui/screens/product_list_screen.dart';
 
 class CraftyBay extends StatelessWidget {
   const CraftyBay({super.key});
@@ -17,21 +17,27 @@ class CraftyBay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-    debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       //darkTheme: ThemeData(),
       initialRoute: '/',
       theme: AppThemData.lightThemeData,
       darkTheme: AppThemData.darkThemeData,
       themeMode: ThemeMode.light,
       initialBinding: ControllerBinder(),
-      routes: {
+
+      onGenerateInitialRoutes: (RouteSettings settings){
 
         '/': (context) => const SplashScreen(),
-        EmailVerificationScreen.name: (context) => const EmailVerificationScreen(),
-        OtplVerificationScreen.name: (context) => const OtplVerificationScreen(),
+        EmailVerificationScreen.name: (context) =>
+            const EmailVerificationScreen(),
+        OtplVerificationScreen.name: (context) =>
+            const OtplVerificationScreen(),
         CompleteScreen.name: (context) => const CompleteScreen(),
         MainBottomNavScreen.name: (context) => const MainBottomNavScreen(),
         CategoryListScreen.name: (context) => const CategoryListScreen(),
+        ProductListScreen.name: (context) => const ProductListScreen(
+              categoryname: '',
+            ),
       },
     );
   }

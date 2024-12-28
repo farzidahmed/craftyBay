@@ -1,14 +1,16 @@
 import 'package:craftybay/app/assets.dart';
+import 'package:craftybay/features/common/ui/controllers/main_bottom_nav_controller.dart';
 import 'package:craftybay/features/home/ui/widgets/app_bar_icon_button.dart';
 import 'package:craftybay/features/home/ui/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 import '../../../../app/app_colors.dart';
 import '../../../common/widgets/category_item.dart';
 import '../widgets/home_carousel_slider.dart';
 import '../widgets/home_section_header.dart';
-import '../widgets/product_item_widget.dart';
+import '../../../common/widgets/product_item_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -44,7 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               HomeSectionHeader(
                 title: 'Category',
-                ontap: () {},
+                ontap: () {
+                  Get.find<MainBottomNavController>().movetonextscreen();
+                },
               ),
               const SizedBox(
                 height: 16,
@@ -146,6 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
   AppBar _buildAppBar() {
     return AppBar(
       title: SvgPicture.asset(Assetspath.navbarapplogo),
+      automaticallyImplyLeading: false,
       actions: [
         AppbarIconButton(
           icon: (Icons.person_2_outlined),

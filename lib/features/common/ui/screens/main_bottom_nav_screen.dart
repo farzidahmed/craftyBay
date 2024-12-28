@@ -32,13 +32,13 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
           bottomNavigationBar: NavigationBar(
               selectedIndex: bottomNavController.selectedIndex,
               onDestinationSelected: bottomNavController.changeindex,
-              destinations: [
-            const NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-            const NavigationDestination(
+              destinations: const [
+            NavigationDestination(icon: Icon(Icons.home), label: "Home"),
+            NavigationDestination(
                 icon: Icon(Icons.category_outlined), label: "Categories"),
-            const NavigationDestination(
+            NavigationDestination(
                 icon: Icon(Icons.shopping_cart_sharp), label: "Cart"),
-            const NavigationDestination(
+            NavigationDestination(
                 icon: Icon(Icons.favorite_border), label: "WishList"),
           ]),
         );

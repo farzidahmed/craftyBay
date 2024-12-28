@@ -12,4 +12,11 @@ class MainBottomNavController extends GetxController {
     _selectedIndex = index;
     update();
   }
+  void backto(){
+    changeindex(0);
+  }
+
+  void movetonextscreen(){
+    changeindex(1);
+  }
 }
