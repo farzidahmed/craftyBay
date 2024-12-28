@@ -1,3 +1,4 @@
+import 'package:craftybay/features/product/ui/screens/product_list_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/app_colors.dart';
@@ -9,23 +10,28 @@ class CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-              color: AppColors.themColor.withOpacity(0.14),
-              borderRadius: BorderRadius.circular(8)
+    return GestureDetector(
+      onTap: (){
+        Navigator.pushNamed(context, ProductListScreen.name,arguments: 'Computer');
+      },
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+                color: AppColors.themColor.withOpacity(0.14),
+                borderRadius: BorderRadius.circular(8)
+            ),
+            child: const Icon(
+              Icons.computer_outlined,
+              color: AppColors.themColor,
+              size: 48,
+            ),
           ),
-          child: const Icon(
-            Icons.computer_outlined,
-            color: AppColors.themColor,
-            size: 48,
-          ),
-        ),
-        const SizedBox(height: 4,),
-        const Text("Computer",style: TextStyle(color: AppColors.themColor,fontSize: 16,letterSpacing: 1),),
-      ],
+          const SizedBox(height: 4,),
+          const Text("Computer",style: TextStyle(color: AppColors.themColor,fontSize: 16,letterSpacing: 1),),
+        ],
+      ),
     );
   }
 }

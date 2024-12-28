@@ -20,13 +20,19 @@ class _ProductListScreenState extends State<ProductListScreen> {
         appBar: AppBar(
           title: Text(widget.categoryname),
         ),
-      body: GridView.builder(
-          gridDelegate:
-              const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,),
-          itemCount: 20,
-          itemBuilder: (context,index){
-                return const FittedBox(child: ProductItemWidget());
-          }),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: GridView.builder(
+            gridDelegate:
+                const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,
+                mainAxisSpacing: 4,
+                crossAxisSpacing: 4,
+                childAspectRatio: 0.7),
+            itemCount: 20,
+            itemBuilder: (context,index){
+                  return const FittedBox(child: ProductItemWidget());
+            }),
+      ),
     );
   }
 }

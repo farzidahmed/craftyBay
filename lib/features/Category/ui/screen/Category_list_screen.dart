@@ -12,6 +12,7 @@ class CategoryListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PopScope(
+      canPop: false,
       onPopInvokedWithResult: (_, __) => _onpop(),
       child: Scaffold(
         appBar: AppBar(
