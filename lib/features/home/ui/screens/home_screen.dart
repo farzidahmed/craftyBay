@@ -5,8 +5,6 @@ import 'package:craftybay/features/home/ui/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
-import '../../../../app/app_colors.dart';
 import '../../../common/widgets/category_item.dart';
 import '../widgets/home_carousel_slider.dart';
 import '../widgets/home_section_header.dart';

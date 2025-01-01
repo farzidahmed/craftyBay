@@ -5,6 +5,7 @@ import 'package:craftybay/features/auth/ui/screens/email_verification_screen.dar
 import 'package:craftybay/features/auth/ui/screens/otp_verification_screen.dart';
 import 'package:craftybay/features/auth/ui/screens/splash_screen.dart';
 import 'package:craftybay/features/common/ui/screens/main_bottom_nav_screen.dart';
+import 'package:craftybay/features/product/ui/screens/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -43,6 +44,10 @@ class CraftyBay extends StatelessWidget {
         else if(settings.name==ProductListScreen.name){
           String name= settings.arguments as String;
           widget =ProductListScreen(categoryname: name,);
+        } 
+        else if(settings.name==ProductDetailsScreen.name){
+          int productId= settings.arguments as int;
+          widget =ProductDetailsScreen( productId: productId,);
         }
           return MaterialPageRoute(builder: (context){
             return widget;
