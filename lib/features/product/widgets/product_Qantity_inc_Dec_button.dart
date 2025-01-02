@@ -2,7 +2,10 @@ import 'package:craftybay/app/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class ProductQantityIncDecButton extends StatefulWidget {
-  const ProductQantityIncDecButton({super.key});
+  const ProductQantityIncDecButton({super.key, required this.onChnage});
+
+
+  final Function(int) onChnage;
 
   @override
   State<ProductQantityIncDecButton> createState() => _ProductQantityIncDecButtonState();
@@ -18,6 +21,7 @@ class _ProductQantityIncDecButtonState extends State<ProductQantityIncDecButton>
         _builIncButton(icon: Icons.remove,ontap: (){
           if(count>1){
             count --;
+            widget.onChnage(count);
             setState(() {
             });
           }
@@ -29,6 +33,7 @@ class _ProductQantityIncDecButtonState extends State<ProductQantityIncDecButton>
         _builIncButton(icon: Icons.add,ontap: (){
           if(count<20){
             count ++;
+            widget.onChnage(count);
             setState(() {
             });
           }
