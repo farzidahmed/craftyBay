@@ -1,4 +1,5 @@
 import 'package:craftybay/app/app_colors.dart';
+import 'package:craftybay/features/product/widgets/color_picker_widget.dart';
 import 'package:craftybay/features/product/widgets/product_Qantity_inc_Dec_button.dart';
 import 'package:flutter/material.dart';
 
@@ -28,64 +29,99 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       body:  Column(
         children: [
           Expanded(
-            child: Column(
-              children: [
-                const Product_Image_Carousel_Slider(),
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                           Expanded(
-                             child: Column(
-
-                              children: [
-                              Text("Happy New Year Special Deal Save 30%",style:themedata.titleLarge,),
-                                Row(
-                                  children: [
-                                    const Row(children: [
-                                      Icon(Icons.star,color: Colors.amber,size: 20,),
-                                      Text(
-                                        "4.5",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            color: Colors.grey),
-                                      ),
-
-                                    ]),
-                                    TextButton(onPressed: (){},
-                                        child: const Text("Review"),),
-                                    Container(
-                                      padding: const EdgeInsets.all(4),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(4),
-                                        color: AppColors.themColor,
-                                      ),
-                                      child: const Icon(Icons.favorite_border,color: Colors.white,size: 14,),
-                                    )
-                                  ],
-                                ),
-                              ],
-                             ),
-                           ),
-                          ProductQantityIncDecButton(onChnage: (int value) {
-                          },),
-                        ],
-                      ),
-                      const SizedBox(height: 16,),
-                      Text("Color",style: themedata.titleMedium,),
-                      const SizedBox(height: 8,),
-                    ],
-                  ),
-                )
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const Product_Image_Carousel_Slider(),
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                             _buildIncDecSec(themedata),
+                            ProductQantityIncDecButton(onChnage: (int value) {
+                            },),
+                          ],
+                        ),
+                        const SizedBox(height: 16,),
+                        Text("Color",style: themedata.titleMedium,),
+                        const SizedBox(height: 8,),
+                        ColorPickerWidget(colors: [
+                          "Red",'Green','Yellow','Pink'
+                        ], onColorSelected: (String selectedcolor ) {  },),
+                        const SizedBox(height: 16,),
+                        Text("Size",style: themedata.titleMedium,),
+                        const SizedBox(height: 8,),
+                        ColorPickerWidget(colors: [
+                          "S",'M','L','XL','XXL'
+                        ], onColorSelected: (String selectedcolor ) {  },),
+                        SizedBox(height: 16,),
+                        Text("Description",style: themedata.titleMedium,),
+                        SizedBox(height: 8,),
+                        Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,"
+                            " and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",style: TextStyle(color: Colors.grey),)
+              
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
           _buildAddToCartFunction(themedata)
         ],
+      ),
+    );
+  }
+
+  Widget _buildIncDecSec(TextTheme themedata) {
+    return Expanded(
+      child: Column(
+        children: [
+          Text(
+            "Happy New Year Special Deal Save 30%",
+            style: themedata.titleLarge,
+          ),
+          Row(
+            children: [
+              const Row(children: [
+                Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                  size: 20,
+                ),
+                Text(
+                  "4.5",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w600, color: Colors.grey),
+                ),
+              ]),
+              TextButton(
+                onPressed: () {},
+                child: const Text("Review"),
+              ),
+              _buildFavIcon()
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildFavIcon() {
+    return Container(
+      padding: const EdgeInsets.all(4),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4),
+        color: AppColors.themColor,
+      ),
+      child: const Icon(
+        Icons.favorite_border,
+        color: Colors.white,
+        size: 14,
       ),
     );
   }
