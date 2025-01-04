@@ -4,9 +4,10 @@ import 'package:craftybay/features/product/widgets/product_Qantity_inc_Dec_butto
 import 'package:flutter/material.dart';
 
 import '../../widgets/home_carousel_slider.dart';
+import '../../widgets/size_picker_widget.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
-  const ProductDetailsScreen({super.key, required this.productId});
+  const ProductDetailsScreen({super.key,   required this.productId});
 
 final int productId;
 
@@ -49,19 +50,15 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         const SizedBox(height: 16,),
                         Text("Color",style: themedata.titleMedium,),
                         const SizedBox(height: 8,),
-                        ColorPickerWidget(colors: [
-                          "Red",'Green','Yellow','Pink'
-                        ], onColorSelected: (String selectedcolor ) {  },),
+                        _buildColorPickerWidget(),
                         const SizedBox(height: 16,),
                         Text("Size",style: themedata.titleMedium,),
                         const SizedBox(height: 8,),
-                        ColorPickerWidget(colors: [
-                          "S",'M','L','XL','XXL'
-                        ], onColorSelected: (String selectedcolor ) {  },),
-                        SizedBox(height: 16,),
+                        _buildSizePickerWidget(),
+                        const SizedBox(height: 16,),
                         Text("Description",style: themedata.titleMedium,),
-                        SizedBox(height: 8,),
-                        Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,"
+                        const SizedBox(height: 8,),
+                        const Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,"
                             " and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",style: TextStyle(color: Colors.grey),)
               
                       ],
@@ -74,6 +71,20 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           _buildAddToCartFunction(themedata)
         ],
       ),
+    );
+  }
+
+  Widget _buildSizePickerWidget() {
+    return SizePickerWidget(
+      size: ["S", 'M', 'L', 'XL', 'XXL'],
+      onSizeSelected: (String selectedcolor) {},
+    );
+  }
+
+  Widget _buildColorPickerWidget() {
+    return ColorPickerWidget(
+      colors: ["Red", 'Green', 'Yellow', 'Pink'],
+      onColorSelected: (String selectedcolor) {},
     );
   }
 
@@ -128,8 +139,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
   Widget _buildAddToCartFunction(TextTheme themedata) {
     return Container(
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.only(topLeft:Radius.circular(24),topRight: Radius.circular(24)),
+            color: AppColors.themColor.withOpacity(0.15),
+          ),
           padding: const EdgeInsets.all(16),
-          color: AppColors.themColor.withOpacity(0.15),
+
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

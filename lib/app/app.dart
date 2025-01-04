@@ -6,6 +6,7 @@ import 'package:craftybay/features/auth/ui/screens/otp_verification_screen.dart'
 import 'package:craftybay/features/auth/ui/screens/splash_screen.dart';
 import 'package:craftybay/features/common/ui/screens/main_bottom_nav_screen.dart';
 import 'package:craftybay/features/product/ui/screens/product_details_screen.dart';
+import 'package:craftybay/features/wishlist/ui/screen/wishlist_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -31,15 +32,15 @@ class CraftyBay extends StatelessWidget {
         if(settings.name==SplashScreen.name){
           widget= const SplashScreen();
         }else if(settings.name==EmailVerificationScreen.name){
-          widget =EmailVerificationScreen();
+          widget =const EmailVerificationScreen();
         }else if(settings.name==OtplVerificationScreen.name){
-          widget =OtplVerificationScreen();
+          widget =const OtplVerificationScreen();
         }else if(settings.name==CompleteScreen.name){
-          widget =CompleteScreen();
+          widget =const CompleteScreen();
         }else if(settings.name==MainBottomNavScreen.name){
-          widget =MainBottomNavScreen();
+          widget =const MainBottomNavScreen();
         }else if(settings.name==CategoryListScreen.name){
-          widget =CategoryListScreen();
+          widget =const CategoryListScreen();
         }
         else if(settings.name==ProductListScreen.name){
           String name= settings.arguments as String;
