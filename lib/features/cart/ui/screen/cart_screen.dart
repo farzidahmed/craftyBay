@@ -32,6 +32,7 @@ class _CartScreenState extends State<CartScreen> {
                       itemCount: 8,
                       itemBuilder: (context, index) {
                         return CartProductItem();
+
                       })),
               _buildAddToCheckOutFunction(themedata),
             ],
