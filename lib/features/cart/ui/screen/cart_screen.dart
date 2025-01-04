@@ -25,6 +25,7 @@ class _CartScreenState extends State<CartScreen> {
             title: const Text('Cart List'),
           ),
           body: Column(
+
             children: [
               Expanded(
                   child: ListView.builder(
