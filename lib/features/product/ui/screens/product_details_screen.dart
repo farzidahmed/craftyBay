@@ -1,6 +1,7 @@
 import 'package:craftybay/app/app_colors.dart';
 import 'package:craftybay/features/product/widgets/color_picker_widget.dart';
 import 'package:craftybay/features/product/widgets/product_Qantity_inc_Dec_button.dart';
+import 'package:craftybay/features/review/ui/screen/add_review_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/home_carousel_slider.dart';
@@ -111,7 +112,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 ),
               ]),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  print('tap this button');
+                  Navigator.pushNamed(context, AddReviewScreen.name);
+                },
                 child: const Text("Review"),
               ),
               _buildFavIcon()
