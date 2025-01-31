@@ -37,6 +37,7 @@ class NetworkCaller{
      return NetworkResponse(isSuccess:false , statusCode:-1,errorMessage: e.toString() );
    }
   }
+
   //post request
   Future<NetworkResponse> postRequest(String url, {Map<String, dynamic>? body})async{
    try{
