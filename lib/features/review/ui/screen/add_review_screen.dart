@@ -13,6 +13,7 @@ class AddReviewScreen extends StatefulWidget {
 
 class _AddReviewScreenState extends State<AddReviewScreen> {
   TextEditingController firstnameController=TextEditingController();
+  TextEditingController lastnameController=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return  PopScope(
@@ -24,13 +25,16 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
           leading: IconButton(onPressed: ()=>_onpop,
               icon: Icon(Icons.arrow_back_ios)),
         ),
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(24),
-              child: Searchbar(controller:firstnameController ,),
-            )
-          ],
+        body: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            children: [
+              Searchbar(controller:firstnameController ,),
+              SizedBox(height: 16,),
+              Searchbar(controller:firstnameController ,),
+              Searchbar(controller:firstnameController ,)
+            ],
+          ),
         ),
       ),
     );

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../app/app_colors.dart';
+
 class Searchbar extends StatelessWidget {
   const Searchbar({
     super.key, required this.controller,
@@ -12,18 +14,16 @@ class Searchbar extends StatelessWidget {
       decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 8),
           enabledBorder: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(8)),
-            borderSide: BorderSide.none,
+            borderSide: BorderSide(color: AppColors.themColor),
           ),
           border: const OutlineInputBorder(
-            borderSide: BorderSide.none,
+            borderSide: BorderSide(color: AppColors.themColor),
           ),
-          focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide.none,
+          focusedBorder:  OutlineInputBorder(
+            borderSide: BorderSide(color: AppColors.themColor),
           ),
           hintText: "Frist Name",
-          prefixIcon: Icon(Icons.search,color: Colors.grey,),
-
-          fillColor: Colors.grey.shade300,
+          fillColor: Colors.white,
           filled: true
       ),
     );

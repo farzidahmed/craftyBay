@@ -6,13 +6,13 @@ import 'package:craftybay/features/auth/ui/screens/otp_verification_screen.dart'
 import 'package:craftybay/features/auth/ui/screens/splash_screen.dart';
 import 'package:craftybay/features/common/ui/screens/main_bottom_nav_screen.dart';
 import 'package:craftybay/features/product/ui/screens/product_details_screen.dart';
-import 'package:craftybay/features/review/ui/screen/add_review_screen.dart';
-import 'package:craftybay/features/wishlist/ui/screen/wishlist_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../features/Category/ui/screen/Category_list_screen.dart';
 import '../features/product/ui/screens/product_list_screen.dart';
+import '../features/review/ui/screen/add_review_screen.dart';
 
 class CraftyBay extends StatelessWidget {
   const CraftyBay({super.key});
