@@ -1,4 +1,3 @@
-import 'package:craftybay/app/app_colors.dart';
 import 'package:craftybay/features/auth/ui/screens/otp_verification_screen.dart';
 import 'package:craftybay/features/auth/ui/screens/splash_screen.dart';
 import 'package:email_validator/email_validator.dart';
@@ -15,8 +14,8 @@ class EmailVerificationScreen extends StatefulWidget {
 }
 
 class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
-  TextEditingController _EmailTeController = TextEditingController();
-  GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+  final TextEditingController _emailTeController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +25,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Form(
-            key: _formkey,
+            key: _formKey,
             child: Column(
               children: [
                 const SizedBox(
@@ -52,7 +51,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                 ),
                 ElevatedButton(
                     onPressed: () {
-                     // _validation();
+                      _validation();
                       Navigator.pushNamed(context, OtplVerificationScreen.name);
                     },
                     child: const Text("Next"))
@@ -67,7 +66,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   Widget _buildTextFiled() {
     return TextFormField(
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      controller: _EmailTeController,
+      controller: _emailTeController,
       decoration: const InputDecoration(
         hintText: "Email address",
       ),
@@ -75,7 +74,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
         if (value?.trim().isEmpty ?? true) {
           return "Enter a email ";
         }
-        if (!EmailValidator.validate(value!)) {
+        if (EmailValidator.validate(value!)==false) {
           return "Enter a valid email address";
         }
         return null;
@@ -84,6 +83,6 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   }
 
   void _validation() {
-    if (_formkey.currentState!.validate()) {}
+    if (_formKey.currentState!.validate()) {}
   }
 }
