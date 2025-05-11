@@ -16,7 +16,7 @@ class EmailVerificationController extends GetxController{
     _inProgress = true;
 
     update();
-     final NetworkResponse response =await Get.find<NetworkCaller>().getRequest(Urls.verifyEmailUrl(email));
+     final NetworkResponse response =await Get.find<NetworkCaller>().postRequest(Urls.verifyEmailUrl(email));
      if(response.isSuccess){
        _errorMessage=null;
     isSuccess=true;

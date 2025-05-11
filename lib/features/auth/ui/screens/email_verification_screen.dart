@@ -52,7 +52,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                 ElevatedButton(
                     onPressed: () {
                       _validation();
-                      Navigator.pushNamed(context, OtplVerificationScreen.name);
+
                     },
                     child: const Text("Next"))
               ],
@@ -83,6 +83,8 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   }
 
   void _validation() {
-    if (_formKey.currentState!.validate()) {}
+    if (_formKey.currentState!.validate()) {
+      Navigator.pushNamed(context, OtplVerificationScreen.name);
+    }
   }
 }
